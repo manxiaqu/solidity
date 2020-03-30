@@ -1,0 +1,28 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "solidity analysis contracts",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manxiaqu/solidity.git"
+  },
+  "keywords": [
+    "solidity"
+  ],
+  "author": "manxiaqu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manxiaqu/solidity/issues"
+  },
+  "homepage": "https://github.com/manxiaqu/solidity#readme",
+  "dependencies": {
+    "@openzeppelin/test-helpers": "^0.5.5"
+  }
+}
