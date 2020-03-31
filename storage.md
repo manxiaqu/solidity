@@ -23,7 +23,7 @@
 2. mapping: 变量声明位置未使用，实际数据存储在keccak256(k . p); k为key。多级映射时，将上一级的结果作为p重复上述步骤即可
 
 3. bytes/string: 当数据量小于31bytes时，在变量声明位置存储，且低位存储了字符串的长度。当大于时，变量声明位置存储了字符串的长度
-实际存储数据从keccak256(p)开始
+实际存储数据从keccak256(p)开始. **字符串数据是左对齐的**
 
 # memory变量布局
 
@@ -34,3 +34,7 @@ solidity保留了4个32字节大小位置用于特殊用途。
 2. 0x40 - 0x5f (32 bytes)： 当前内存使用大小
 
 3. 0x60 - 0x7f (32 bytes): zero slot， 用于初始化动态memory数组
+
+# library
+
+1. library的internal方法在编译期间会放入调用它的合约的代码中，使用jump而不是delegatecall调用。

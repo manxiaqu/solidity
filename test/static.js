@@ -1,5 +1,5 @@
 const StaticStorage = artifacts.require('StaticStorage');
-const { toBN, contact, zero, shortStringLen } = require('./utils');
+const { toBN, contact, zero, shortStringLen, hexToNumber, codeLen } = require('./utils');
 
 contract('static-sized variables storage slot ', function(accounts){
         let storage;
@@ -98,6 +98,27 @@ contract('static-sized variables storage slot ', function(accounts){
                         let var10 = await storage.var10.call();
                         let len10 = await storage.assemblyCall(9);
                         assert.equal(toBN(len10).toNumber(), 2*var10.length+1);
+                })
+        })
+
+        describe('assembly', async function(){
+                it('get address code and len', async function(){
+                        let info = await storage.at(addr);
+                        let code = info[0];
+                        let len = info[1];
+                        assert.equal(codeLen(code)/2, hexToNumber(len));
+                })
+
+                it('hello world', async function(){
+                        let word = await storage.helloWorld();
+                        assert.equal(word, "hello world");
+                })
+        })
+
+        describe('library', async function(){
+                it('lib', async function(){
+                        let info = await storage.getLibrary();
+                        assert.equal(info, "library");
                 })
         })
 })

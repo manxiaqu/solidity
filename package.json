@@ -24,5 +24,9 @@
   "homepage": "https://github.com/manxiaqu/solidity#readme",
   "dependencies": {
     "@openzeppelin/test-helpers": "^0.5.5"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.2",
+    "prettier-plugin-solidity": "^1.0.0-alpha.47"
   }
 }

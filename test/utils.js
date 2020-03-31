@@ -16,6 +16,18 @@ exports.shortStringLen = function(bytes) {
         return bytes.substring(bytes.length-2, bytes.length);
 }
 
+exports.codeLen = function(code) {
+        if (code.startsWith('0x') || code.startsWith('0X')) {
+                return code.length - 2
+        }
+
+        return code.length
+}
+
+exports.hexToNumber = function(hex) {
+        return tobn(hex).toNumber()
+}
+
 function tobn(hex) {
         if (hex.startsWith('0x') || hex.startsWith('0X')) {
                 hex = hex.substring(2, hex.length);
